@@ -5,21 +5,21 @@ const moment = require("moment")
 
 const OWM_API_KEY = process.env.OWM_API_KEY
 
-router.post("/", (req, res) => {
+router.get("/", (req, res) => {
 
   const today = new Date()
   const dayOfWeek = today.getDay()
 
-  if (dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) {
+  if ( dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) {
 
     const cities = [
       { name: "Toulon", lat: 43.124228, lon: 5.928 },
-      { name: "Calvi", lat: 42.567651, lon: 8.757222},
-      { name: "Bastia", lat: 42.697283, lon: 9.450881 },
+      { name: "Hyères", lat: 43.120541, lon: 6.128639 },
+      { name: "Nîmes", lat: 43.836699, lon: 4.360054 },
       { name: "Nice", lat: 43.7101728, lon: 7.2619532 },
       { name: "Perpignan", lat: 42.6886591, lon: 2.8948332 },
       { name: "Marignane", lat: 43.4212739, lon: 5.218332 },
-      { name: "Ajaccio", lat: 41.919229, lon: 8.738635 },
+      { name: "Istres", lat: 43.513006, lon: 4.987968 },
       { name: "Sète", lat: 43.4078758, lon: 3.7008219 },
       { name: "Cuers", lat: 43.2333, lon: 6.0667 },
       { name: "Fréjus", lat: 43.433152, lon: 6.737034},
@@ -55,7 +55,9 @@ router.post("/", (req, res) => {
 
             return { 
               city: city.name, 
-              temperature: averageTemp 
+              temperature: averageTemp, 
+              lat:city.lat,
+              lon:city.lon
             }
           })
 
@@ -65,21 +67,27 @@ router.post("/", (req, res) => {
       })
     )
       .then((data) => {
-
+       //Trouve la ville avec la plus haute température
        let bestCityName = data[0].city
        let bestCityTemperature = data[0].temperature
+       let bestCityLat = data[0].lat
+       let bestCityLon = data[0].lon
        
         for (let i = 1 ; i < data.length ; i++){
           if (data[i].temperature > bestCityTemperature){
             bestCityName = data[i].city
             bestCityTemperature = data[i].temperature
+            bestCityLat = data[i].lat
+            bestCityLon = data[i].lon
           }
         }
 
         res.json({ 
           result: true, 
           city: bestCityName, 
-          temperature: bestCityTemperature 
+          temp: bestCityTemperature,
+          lat: bestCityLat,
+          lon: bestCityLon,
         })
       })
 
