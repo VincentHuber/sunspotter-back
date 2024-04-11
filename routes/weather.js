@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
         lon: 5.928,
         img1: "/toulon1.png",
         img2: "/toulon2.png",
-        img1: "/toulon3.png",
+        img3: "/toulon3.png",
         text: `Découvre son port, flâne dans ses ruelles provençales, 
               savoure sa gastronomie ensoleillée. Laisse-toi séduire 
               par son ambiance chaleureuse et ses paysages.`,
@@ -29,7 +29,7 @@ router.get("/", (req, res) => {
         lon: 6.128639,
         img1: "/hyeres1.png",
         img2: "/hyeres2.png",
-        img1: "/hyeres3.png",
+        img3: "/hyeres3.png",
         text: `Profite des plages de sable fin et des marais salants. 
               Découvre son patrimoine naturel, ses 7 000 palmiers. 
               Explore ses criques, sa vallée, son massif, ses îles.`,
@@ -40,7 +40,7 @@ router.get("/", (req, res) => {
         lon: 5.618477,
         img1: "/cassis1.png",
         img2: "/cassis2.png",
-        img1: "/cassis3.png",
+        img3: "/cassis3.png",
         text: `Explore ce charmant port de pêche du sud de la France. 
               Réputé pour ses plages de galets et ses calanques escarpées, 
               Cassis séduit avec ses bâtiments colorés et ses vignobles.`,
