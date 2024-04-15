@@ -190,6 +190,7 @@ router.get("/", (req, res) => {
           img2: bestCityImg2,
           img3: bestCityImg3,
           text: bestCityText,
+          showWaiting:false,
         });
       })
 
@@ -200,10 +201,19 @@ router.get("/", (req, res) => {
           error: "Problème lors de la récupération des données",
         });
       });
+      
   } else {
     res.status(200).json({
-      result: false,
-      message: "La requête ne peut être effectuée que du mercredi au vendredi.",
+      result: true,
+      city: null,
+      temp: null,
+      lat: null,
+      lon: null,
+      img1: null,
+      img2: null,
+      img3: null,
+      text:null,
+      showWaiting:true,
     });
   }
 });
