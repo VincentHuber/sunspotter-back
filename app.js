@@ -10,7 +10,9 @@ var weatherRouter = require('./routes/weather');
 var app = express();
 
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+  origin: 'https://sunspotter-front.vercel.app'
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
