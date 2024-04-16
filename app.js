@@ -11,7 +11,7 @@ var app = express();
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'http://localhost:3003'
+  origin: 'https://sunspotter-front.vercel.app'
 }));
 
 app.use(logger('dev'));
