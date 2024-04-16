@@ -9,8 +9,13 @@ router.get("/", (req, res) => {
   const today = new Date();
   const dayOfWeek = today.getDay();
 
-  if ( dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5 || dayOfWeek == 6 ) {
-
+  if (
+    dayOfWeek == 2 ||
+    dayOfWeek == 3 ||
+    dayOfWeek == 4 ||
+    dayOfWeek == 5 ||
+    dayOfWeek == 6
+  ) {
     const cities = [
       {
         name: "Toulon",
@@ -85,7 +90,7 @@ router.get("/", (req, res) => {
       {
         name: "Tarascon",
         lat: 43.806044,
-        lon: 4.657520,
+        lon: 4.65752,
         img1: "/tara1.png",
         img2: "/tara2.png",
         img3: "/tara3.png",
@@ -112,48 +117,49 @@ router.get("/", (req, res) => {
     ];
 
     //Boucle sur toutes les villes
-    const weatherData = await Promise.all(
-      cities.map(async (city) => {
-        try {
-          const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${OWM_API_KEY}&units=metric`
-          );
-          const apiData = await response.json();
-          console.log('apiData : ', apiData)
-          const result = apiData.list;
-    
-          //Filtre pour n'afficher que les résultats du weekend
-          const filterWeekend = result.filter((weekend) => {
-            const day = moment(weekend.dt_txt).format("dddd");
-            return day === "Saturday" || day === "Sunday";
+    Promise.all(
+      cities.map((city) => {
+        return fetch(
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${OWM_API_KEY}&units=metric`
+        )
+          .then((response) => response.json())
+          .then((apiData) => {
+            console.log("apiData : ", apiData);
+            const result = apiData.list;
+
+            //Filtre pour n'afficher que les résultats du weekend
+            const filterWeekend = result.filter((weekend) => {
+              const day = moment(weekend.dt_txt).format("dddd");
+              return day === "Saturday" || day === "Sunday";
+            });
+
+            //Filtre pour n'afficher que les résultats en journée du weekend
+            const filterDaytime = filterWeekend.filter(
+              (daytime) => daytime.sys.pod === "d"
+            );
+
+            //Filtre pour n'afficher que les températures en journée du weekend
+            const filterTemp = filterDaytime.map((item) => item.main.temp);
+
+            //Calcul de la moyenne des températures
+            const total = filterTemp.reduce((item1, item2) => item1 + item2, 0);
+            const averageTemp = Math.round(total / filterTemp.length);
+
+            return {
+              city: city.name,
+              temperature: averageTemp,
+              lat: city.lat,
+              lon: city.lon,
+              img1: city.img1,
+              img2: city.img2,
+              img3: city.img3,
+              text: city.text,
+            };
+          })
+
+          .catch((error) => {
+            console.error(`Problème pour le fetch de ${city.name}`, error);
           });
-    
-          //Filtre pour n'afficher que les résultats en journée du weekend
-          const filterDaytime = filterWeekend.filter(
-            (daytime) => daytime.sys.pod === "d"
-          );
-    
-          //Filtre pour n'afficher que les températures en journée du weekend
-          const filterTemp = filterDaytime.map((item) => item.main.temp);
-    
-          //Calcul de la moyenne des températures
-          const total = filterTemp.reduce((item1, item2) => item1 + item2, 0);
-          const averageTemp = Math.round(total / filterTemp.length);
-    
-          return {
-            city: city.name,
-            temperature: averageTemp,
-            lat: city.lat,
-            lon: city.lon,
-            img1: city.img1,
-            img2: city.img2,
-            img3: city.img3,
-            text: city.text,
-          };
-        } catch (error) {
-          console.error(`Problème pour le fetch de ${city.name}`, error);
-          throw error; // Renvoyer l'erreur pour la capturer dans le bloc catch suivant
-        }
       })
     )
       .then((data) => {
@@ -166,7 +172,7 @@ router.get("/", (req, res) => {
         let bestCityImg2 = data[0].img2;
         let bestCityImg3 = data[0].img3;
         let bestCityText = data[0].text;
-    
+
         for (let i = 1; i < data.length; i++) {
           if (data[i].temperature > bestCityTemperature) {
             bestCityName = data[i].city;
@@ -179,7 +185,7 @@ router.get("/", (req, res) => {
             bestCityText = data[i].text;
           }
         }
-    
+
         res.json({
           result: true,
           city: bestCityName,
@@ -193,6 +199,7 @@ router.get("/", (req, res) => {
           showWaiting: false,
         });
       })
+
       .catch((error) => {
         console.error("Problème lors de la récupération des données", error);
         res.status(500).json({
@@ -200,6 +207,20 @@ router.get("/", (req, res) => {
           error: "Problème lors de la récupération des données",
         });
       });
-    
+  } else {
+    res.status(200).json({
+      result: true,
+      city: "Paris",
+      temp: null,
+      lat: null,
+      lon: null,
+      img1: null,
+      img2: null,
+      img3: null,
+      text: null,
+      showWaiting: true,
+    });
+  }
+});
 
 module.exports = router;
