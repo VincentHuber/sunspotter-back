@@ -218,7 +218,7 @@ router.get("/", (req, res) => {
       img2: null,
       img3: null,
       text: null,
-      showWaiting: true,
+      showWaiting: false,
     });
   }
 });
