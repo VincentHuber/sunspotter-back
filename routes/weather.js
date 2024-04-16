@@ -211,7 +211,7 @@ router.get("/", async (req, res) => {
   } else {
     res.status(200).json({
       result: true,
-      city: null,
+      city: "Paris",
       temp: null,
       lat: null,
       lon: null,
