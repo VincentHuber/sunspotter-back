@@ -210,7 +210,7 @@ router.get("/", (req, res) => {
   } else {
     res.status(200).json({
       result: true,
-      city: "Paris",
+      city: null,
       temp: null,
       lat: null,
       lon: null,
@@ -218,7 +218,7 @@ router.get("/", (req, res) => {
       img2: null,
       img3: null,
       text: null,
-      showWaiting: false,
+      showWaiting: true,
     });
   }
 });
