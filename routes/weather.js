@@ -5,7 +5,7 @@ const moment = require("moment");
 
 const OWM_API_KEY = process.env.OWM_API_KEY;
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const today = new Date();
   const dayOfWeek = today.getDay();
 
@@ -117,7 +117,7 @@ router.get("/", (req, res) => {
     ];
 
     //Boucle sur toutes les villes
-    try{
+  
       
       const weatherData = await Promise.all(
       cities.map(async (city) => {
@@ -159,7 +159,7 @@ router.get("/", (req, res) => {
           };
         } catch (error) {
           console.error(`Problème pour le fetch de ${city.name}`, error);
-          throw error; // Renvoyer l'erreur pour la capturer dans le bloc catch suivant
+          throw error; 
         }
       })
     )
