@@ -189,7 +189,7 @@ router.get("/", async (req, res) => {
     
         res.json({
           result: true,
-          city: bestCityName,
+          city: "Paris",
           temp: bestCityTemperature,
           lat: bestCityLat,
           lon: bestCityLon,
