@@ -120,7 +120,7 @@ router.get("/", (req, res) => {
     Promise.all(
       cities.map((city) => {
         return fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${OWM_API_KEY}&units=metric`
+          `http://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${OWM_API_KEY}&units=metric`
         )
           .then((response) => response.json())
           .then((apiData) => {

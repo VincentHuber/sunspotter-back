@@ -11,7 +11,7 @@ var app = express();
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://sunspotter-front.vercel.app',
+  origin: 'http://sunspotter-front.vercel.app',
   methods: ["POST", "GET"],
   credentials:true
 }));
