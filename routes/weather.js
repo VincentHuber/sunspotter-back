@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   const dayOfWeek = today.getDay();
 
   if (
-    dayOfWeek == 0 ||
+    dayOfWeek == 2 ||
     dayOfWeek == 3 ||
     dayOfWeek == 4 ||
     dayOfWeek == 5 ||
@@ -124,7 +124,6 @@ router.get("/", (req, res) => {
         )
           .then((response) => response.json())
           .then((apiData) => {
-            console.log("apiData : ", apiData);
             const result = apiData.list;
 
             //Filtre pour n'afficher que les résultats du weekend
