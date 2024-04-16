@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   const dayOfWeek = today.getDay();
 
   if (
-    dayOfWeek == 0 ||
+    dayOfWeek == 2 ||
     dayOfWeek == 3 ||
     dayOfWeek == 4 ||
     dayOfWeek == 5 ||
