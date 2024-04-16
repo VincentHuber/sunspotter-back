@@ -11,7 +11,7 @@ var app = express();
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://sunspotter-front-7uqeae12u-vincenthubers-projects.vercel.app'
+  origin: 'https://sunspotter-front.vercel.app'
 }));
 
 app.use(logger('dev'));
