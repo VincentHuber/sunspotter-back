@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   const today = new Date();
   const dayOfWeek = today.getDay();
 
-  if ( dayOfWeek == 1 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5 || dayOfWeek == 6 ) {
+  if ( dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5 || dayOfWeek == 6 ) {
 
     const cities = [
       {
