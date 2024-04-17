@@ -60,12 +60,7 @@ router.get("/", (req, res) => {
         img1: "/perpi1.png",
         img2: "/perpi2.png",
         img3: "/perpi3.png",
-        text: `Découvre ses ruelles envoûtantes, 
-              délecte-toi de sa cuisine 
-              catalane, 
-              vibre au rythme de 
-              ses festivals et laisse-toi séduire par son 
-              charme méditerranéen. Perpignan t'attend !`,
+        text: `Découvre ses ruelles envoûtantes, délecte-toi de sa cuisine catalane, vibre au rythme de ses festivals et laisse-toi séduire par son charme méditerranéen. Perpignan t'attend !`,
       },
 
       {
