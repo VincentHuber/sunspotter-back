@@ -57,7 +57,10 @@ router.get("/", (req, res) => {
         img1: "/beziers1.png",
         img2: "/beziers2.png",
         img3: "/beziers3.png",
-        text: `Explore cette commune historique de l'Hérault, région Occitanie. Béziers, potentiellement la plus ancienne ville de France, fascine par son histoire, sa viticulture et sa feria estivale.`,
+        text: `Explore cette commune historique de l'Hérault, région 
+              Occitanie. Béziers, potentiellement la plus ancienne ville 
+              de France, fascine par son histoire, sa viticulture et sa 
+              feria estivale.`,
       },
       {
         name: "Perpignan",
@@ -66,7 +69,9 @@ router.get("/", (req, res) => {
         img1: "/perpi1.png",
         img2: "/perpi2.png",
         img3: "/perpi3.png",
-        text: `Découvre ses ruelles envoûtantes, délecte-toi de sa cuisine catalane, vibre au rythme de ses festivals et laisse-toi séduire par son charme méditerranéen. Perpignan t'attend !`,
+        text: `Découvre ses ruelles envoûtantes, délecte-toi de sa cuisine 
+              catalane, vibre au rythme de ses festivals et laisse-toi 
+              séduire par son charme méditerranéen. Perpignan t'attend !`,
       },
 
       {
@@ -76,7 +81,9 @@ router.get("/", (req, res) => {
         img1: "/mari1.png",
         img2: "/mari2.png",
         img3: "/mari3.png",
-        text: `Nichée entre mer et collines, cette ville provençale offre un mélange de tradition et de modernité. Les ruelles étroites invitent à savourer des spécialités locales dans des cafés animés.`,
+        text: `Nichée entre mer et collines, cette ville provençale offre 
+              un mélange de tradition et de modernité. Les ruelles étroites 
+              invitent à savourer des spécialités locales dans des cafés animés.`,
       },
       {
         name: "Istres",
@@ -85,7 +92,9 @@ router.get("/", (req, res) => {
         img1: "/istres1.png",
         img2: "/istres2.png",
         img3: "/istres3.png",
-        text: `Découvre Istres, ville dynamique au cœur de la Provence. Entre les étangs et les Alpilles, profite de son patrimoine historique, de ses espaces verts et de sa vie culturelle animée.`,
+        text: `Découvre Istres, ville dynamique au cœur de la Provence. Entre 
+              les étangs et les Alpilles, profite de son patrimoine historique, 
+              de ses espaces verts et de sa vie culturelle animée.`,
       },
       {
         name: "Tarascon",
@@ -94,7 +103,9 @@ router.get("/", (req, res) => {
         img1: "/tara1.png",
         img2: "/tara2.png",
         img3: "/tara3.png",
-        text: `Découvre cette ville des Bouches-du-Rhône, entre Avignon et Arles. Peuplée dès la Préhistoire, elle fascine par son histoire, sa légende de sainte Marthe et son patrimoine architectural exceptionnel.`,
+        text: `Découvre cette ville des Bouches-du-Rhône, entre Avignon et Arles. 
+              Peuplée dès la Préhistoire, elle fascine par son histoire, sa légende 
+              de sainte Marthe et son patrimoine architectural exceptionnel.`,
       },
       {
         name: "Cannes",
@@ -103,7 +114,9 @@ router.get("/", (req, res) => {
         img1: "/cannes1.png",
         img2: "/cannes2.png",
         img3: "/cannes3.png",
-        text: `Découvre cette destination réputée pour son festival du film. La Croisette, bordée de plages, boutiques et palaces, abrite le Palais des Festivals et l'Allée des Stars.`,
+        text: `Découvre cette destination réputée pour son festival du film. 
+            La Croisette, bordée de plages, boutiques et palaces, abrite le Palais 
+            des Festivals et l'Allée des Stars.`,
       },
       {
         name: "Frejus",
@@ -112,7 +125,9 @@ router.get("/", (req, res) => {
         img1: "/frejus1.png",
         img2: "/frejus2.png",
         img3: "/frejus3.png",
-        text: `Explore cette commune dynamique du Var, région Provence-Alpes-Côte d’Azur. Ville d'histoire, station balnéaire, elle offre un riche patrimoine antique et un cadre festif.`,
+        text: `Explore cette commune dynamique du Var, région Provence-Alpes-Côte 
+              d’Azur. Ville d'histoire, station balnéaire, elle offre un riche 
+              patrimoine antique et un cadre festif.`,
       },
     ];
 
@@ -147,8 +162,6 @@ router.get("/", (req, res) => {
             return {
               city: city.name,
               temperature: averageTemp,
-              lat: city.lat,
-              lon: city.lon,
               img1: city.img1,
               img2: city.img2,
               img3: city.img3,
@@ -165,8 +178,6 @@ router.get("/", (req, res) => {
         //Trouve la ville avec la plus haute température
         let bestCityName = data[0].city;
         let bestCityTemperature = data[0].temperature;
-        let bestCityLat = data[0].lat;
-        let bestCityLon = data[0].lon;
         let bestCityImg1 = data[0].img1;
         let bestCityImg2 = data[0].img2;
         let bestCityImg3 = data[0].img3;
@@ -176,8 +187,6 @@ router.get("/", (req, res) => {
           if (data[i].temperature > bestCityTemperature) {
             bestCityName = data[i].city;
             bestCityTemperature = data[i].temperature;
-            bestCityLat = data[i].lat;
-            bestCityLon = data[i].lon;
             bestCityImg1 = data[i].img1;
             bestCityImg2 = data[i].img2;
             bestCityImg3 = data[i].img3;
@@ -189,8 +198,6 @@ router.get("/", (req, res) => {
           result: true,
           city: bestCityName,
           temp: bestCityTemperature,
-          lat: bestCityLat,
-          lon: bestCityLon,
           img1: bestCityImg1,
           img2: bestCityImg2,
           img3: bestCityImg3,
@@ -212,8 +219,6 @@ router.get("/", (req, res) => {
       result: true,
       city: null,
       temp: null,
-      lat: null,
-      lon: null,
       img1: null,
       img2: null,
       img3: null,
