@@ -24,9 +24,7 @@ router.get("/", (req, res) => {
         img1: "/toulon1.png",
         img2: "/toulon2.png",
         img3: "/toulon3.png",
-        text: `Découvre son port, flâne dans ses ruelles provençales, 
-              savoure sa gastronomie ensoleillée. Laisse-toi séduire 
-              par son ambiance chaleureuse et ses paysages.`,
+        text: `Découvre son port, flâne dans ses ruelles provençales, savoure sa gastronomie ensoleillée. Laisse-toi séduire par son ambiance chaleureuse et ses paysages.`,
       },
       {
         name: "Hyeres",
@@ -35,9 +33,7 @@ router.get("/", (req, res) => {
         img1: "/hyeres1.png",
         img2: "/hyeres2.png",
         img3: "/hyeres3.png",
-        text: `Profite des plages de sable fin et des marais salants. 
-              Découvre son patrimoine naturel, ses 7 000 palmiers. 
-              Explore ses criques, sa vallée, son massif, ses îles.`,
+        text: `Profite des plages de sable fin et des marais salants. Découvre son patrimoine naturel, ses 7 000 palmiers. Explore ses criques, sa vallée, son massif, ses îles.`,
       },
       {
         name: "Cassis",
@@ -46,9 +42,7 @@ router.get("/", (req, res) => {
         img1: "/cassis1.png",
         img2: "/cassis2.png",
         img3: "/cassis3.png",
-        text: `Explore ce charmant port de pêche du sud de la France. 
-              Réputé pour ses plages de galets et ses calanques escarpées, 
-              Cassis séduit avec ses bâtiments colorés et ses vignobles.`,
+        text: `Explore ce charmant port de pêche du sud de la France. Réputé pour ses plages de galets et ses calanques escarpées, Cassis séduit avec ses bâtiments colorés et ses vignobles.`,
       },
       {
         name: "Beziers",
@@ -57,10 +51,7 @@ router.get("/", (req, res) => {
         img1: "/beziers1.png",
         img2: "/beziers2.png",
         img3: "/beziers3.png",
-        text: `Explore cette commune historique de l'Hérault, région 
-              Occitanie. Béziers, potentiellement la plus ancienne ville 
-              de France, fascine par son histoire, sa viticulture et sa 
-              feria estivale.`,
+        text: `Explore cette commune historique de l'Hérault, région Occitanie. Béziers, potentiellement la plus ancienne ville de France, fascine par son histoire, sa viticulture et sa feria estivale.`,
       },
       {
         name: "Perpignan",
@@ -69,9 +60,7 @@ router.get("/", (req, res) => {
         img1: "/perpi1.png",
         img2: "/perpi2.png",
         img3: "/perpi3.png",
-        text: `Découvre ses ruelles envoûtantes, délecte-toi de sa cuisine 
-              catalane, vibre au rythme de ses festivals et laisse-toi 
-              séduire par son charme méditerranéen. Perpignan t'attend !`,
+        text: `Découvre ses ruelles envoûtantes, délecte-toi de sa cuisine catalane, vibre au rythme de ses festivals et laisse-toi séduire par son charme méditerranéen. Perpignan t'attend !`,
       },
 
       {
@@ -81,9 +70,7 @@ router.get("/", (req, res) => {
         img1: "/mari1.png",
         img2: "/mari2.png",
         img3: "/mari3.png",
-        text: `Nichée entre mer et collines, cette ville provençale offre 
-              un mélange de tradition et de modernité. Les ruelles étroites 
-              invitent à savourer des spécialités locales dans des cafés animés.`,
+        text: `Nichée entre mer et collines, cette ville provençale offre un mélange de tradition et de modernité. Les ruelles étroites invitent à savourer des spécialités locales dans des cafés animés.`,
       },
       {
         name: "Istres",
@@ -92,9 +79,7 @@ router.get("/", (req, res) => {
         img1: "/istres1.png",
         img2: "/istres2.png",
         img3: "/istres3.png",
-        text: `Découvre Istres, ville dynamique au cœur de la Provence. Entre 
-              les étangs et les Alpilles, profite de son patrimoine historique, 
-              de ses espaces verts et de sa vie culturelle animée.`,
+        text: `Découvre Istres, ville dynamique au cœur de la Provence. Entre les étangs et les Alpilles, profite de son patrimoine historique, de ses espaces verts et de sa vie culturelle animée.`,
       },
       {
         name: "Tarascon",
@@ -103,9 +88,7 @@ router.get("/", (req, res) => {
         img1: "/tara1.png",
         img2: "/tara2.png",
         img3: "/tara3.png",
-        text: `Découvre cette ville des Bouches-du-Rhône, entre Avignon et Arles. 
-              Peuplée dès la Préhistoire, elle fascine par son histoire, sa légende 
-              de sainte Marthe et son patrimoine architectural exceptionnel.`,
+        text: `Découvre cette ville des Bouches-du-Rhône, entre Avignon et Arles. Peuplée dès la Préhistoire, elle fascine par son histoire, sa légende de sainte Marthe et son patrimoine architectural exceptionnel.`,
       },
       {
         name: "Cannes",
@@ -114,9 +97,7 @@ router.get("/", (req, res) => {
         img1: "/cannes1.png",
         img2: "/cannes2.png",
         img3: "/cannes3.png",
-        text: `Découvre cette destination réputée pour son festival du film. 
-            La Croisette, bordée de plages, boutiques et palaces, abrite le Palais 
-            des Festivals et l'Allée des Stars.`,
+        text: `Découvre cette destination réputée pour son festival du film. La Croisette, bordée de plages, boutiques et palaces, abrite le Palais des Festivals et l'Allée des Stars.`,
       },
       {
         name: "Frejus",
@@ -125,9 +106,7 @@ router.get("/", (req, res) => {
         img1: "/frejus1.png",
         img2: "/frejus2.png",
         img3: "/frejus3.png",
-        text: `Explore cette commune dynamique du Var, région Provence-Alpes-Côte 
-              d’Azur. Ville d'histoire, station balnéaire, elle offre un riche 
-              patrimoine antique et un cadre festif.`,
+        text: `Explore cette commune dynamique du Var, région Provence-Alpes-Côte d’Azur. Ville d'histoire, station balnéaire, elle offre un riche patrimoine antique et un cadre festif.`,
       },
     ];
 
@@ -175,6 +154,7 @@ router.get("/", (req, res) => {
       })
     )
       .then((data) => {
+        console.log('data => ', data)
         //Trouve la ville avec la plus haute température
         let bestCityName = data[0].city;
         let bestCityTemperature = data[0].temperature;
