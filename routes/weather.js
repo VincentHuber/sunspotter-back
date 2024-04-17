@@ -60,7 +60,12 @@ router.get("/", (req, res) => {
         img1: "/perpi1.png",
         img2: "/perpi2.png",
         img3: "/perpi3.png",
-        text: `Découvre ses ruelles envoûtantes, délecte-toi de sa cuisine catalane, vibre au rythme de ses festivals et laisse-toi séduire par son charme méditerranéen. Perpignan t'attend !`,
+        text: `Découvre ses ruelles envoûtantes, 
+              délecte-toi de sa cuisine 
+              catalane, 
+              vibre au rythme de 
+              ses festivals et laisse-toi séduire par son 
+              charme méditerranéen. Perpignan t'attend !`,
       },
 
       {
@@ -121,15 +126,18 @@ router.get("/", (req, res) => {
             const result = apiData.list;
 
             //Filtre pour n'afficher que les résultats du weekend
-            const filterWeekend = result.filter((weekend) => {
-              const day = moment(weekend.dt_txt).format("dddd");
-              return day === "Saturday" || day === "Sunday";
-            });
+            const filterWeekend = result.filter(
+              (weekend) =>
+                moment(weekend.dt_txt).format("dddd") === "Saturday" ||
+                moment(weekend.dt_txt).format("dddd") === "Sunday"
+            );
 
             //Filtre pour n'afficher que les résultats en journée du weekend
             const filterDaytime = filterWeekend.filter(
               (daytime) => daytime.sys.pod === "d"
             );
+
+            console.log('filterDaytime : ', filterDaytime)
 
             //Filtre pour n'afficher que les températures en journée du weekend
             const filterTemp = filterDaytime.map((item) => item.main.temp);
@@ -154,7 +162,6 @@ router.get("/", (req, res) => {
       })
     )
       .then((data) => {
-        console.log('data => ', data)
         //Trouve la ville avec la plus haute température
         let bestCityName = data[0].city;
         let bestCityTemperature = data[0].temperature;
@@ -193,7 +200,6 @@ router.get("/", (req, res) => {
           error: "Problème lors de la récupération des données",
         });
       });
-      
   } else {
     res.status(200).json({
       result: true,
