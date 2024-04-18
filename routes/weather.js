@@ -132,8 +132,6 @@ router.get("/", (req, res) => {
               (daytime) => daytime.sys.pod === "d"
             );
 
-            console.log('filterDaytime : ', filterDaytime)
-
             //Filtre pour n'afficher que les températures en journée du weekend
             const filterTemp = filterDaytime.map((item) => item.main.temp);
 
